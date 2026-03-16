@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -360,40 +361,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INSTAGRAM */}
+      {/* GALLERY */}
       <section className="instagram" id="instagram">
         <div className="ig-header">
           <div>
             <div className="section-label">Gallery</div>
-            <div className="section-title" style={{ marginBottom: 0 }}>Instagram</div>
+            <div className="section-title" style={{ marginBottom: 0 }}>Photo Gallery</div>
           </div>
           <a href="https://www.instagram.com/sfx_utah" target="_blank" rel="noreferrer" className="ig-handle">
             @sfx_utah
           </a>
         </div>
-        <div className="ig-grid">
-          {[
-            { bg: "ig-bg-1", icon: "🎤" },
-            { bg: "ig-bg-2", icon: "🎵" },
-            { bg: "ig-bg-3", icon: "📸" },
-            { bg: "ig-bg-4", icon: "🎸" },
-            { bg: "ig-bg-5", icon: "🥁" },
-            { bg: "ig-bg-6", icon: "🎤" },
-            { bg: "ig-bg-7", icon: "🎵" },
-            { bg: "ig-bg-8", icon: "📸" },
-            { bg: "ig-bg-9", icon: "🎸" },
-            { bg: "ig-bg-10", icon: "🥁" },
-            { bg: "ig-bg-11", icon: "🎤" },
-            { bg: "ig-bg-12", icon: "🎵" },
-          ].map(({ bg, icon }, i) => (
-            <div key={i} className="ig-cell">
-              <div className={`ig-cell-inner ${bg}`}>{icon}</div>
-              <div className="ig-cell-overlay">
-                <span>♥</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Gallery />
       </section>
 
       {/* NEWSLETTER */}
