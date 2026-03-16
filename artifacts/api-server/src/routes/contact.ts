@@ -74,7 +74,7 @@ router.post("/contact", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"SFX Media" <${gmailUser}>`,
-      to: "chancecarrollphotography@gmail.com",
+      to: "chancecarroll07@gmail.com",
       replyTo: email,
       subject: `[SFX Media] New inquiry from ${name} (${roleLabel})`,
       html,
