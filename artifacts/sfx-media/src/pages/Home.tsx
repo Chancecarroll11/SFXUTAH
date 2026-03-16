@@ -289,24 +289,30 @@ export default function Home() {
 
       {/* ARTISTS */}
       <section className="artists" id="artists">
-        <div className="section-label">Spotlight</div>
-        <div className="section-title">Artists to Watch</div>
+        <div className="section-label">SFX II — Apr 25 · The Rise, Provo</div>
+        <div className="section-title">Artist Spotlight</div>
         <div className="artists-grid">
           {[
-            { initials: "TC", name: "Talon Cruz", loc: "Spanish Fork", genre: "R&B / Soul" },
-            { initials: "MV", name: "Mira Voss", loc: "Provo", genre: "Indie Pop" },
-            { initials: "DX", name: "Dax & The Current", loc: "SLC", genre: "Hip-Hop" },
-            { initials: "JR", name: "Jace Redd", loc: "Ogden", genre: "Alt-Rock" },
-            { initials: "SN", name: "Sunnova", loc: "Lehi", genre: "Electronic" },
-            { initials: "PK", name: "PVKK", loc: "SLC", genre: "Punk / Post-Punk" },
-            { initials: "LM", name: "Luna Moreno", loc: "Orem", genre: "Folk / Americana" },
-            { initials: "ZB", name: "Zero Bound", loc: "SLC", genre: "Metal" },
-          ].map(({ initials, name, loc, genre }) => (
-            <a key={name} href="#" className="artist-card fade-up">
+            {
+              initials: "NB",
+              name: "Nvrbryan",
+              spotify: "https://open.spotify.com/artist/4RgsN7LGrJ36tAs8tJ5kN1",
+            },
+          ].map(({ initials, name, spotify }) => (
+            <a
+              key={name}
+              href={spotify}
+              target="_blank"
+              rel="noreferrer"
+              className="artist-card fade-up"
+            >
               <div className="artist-avatar">{initials}</div>
               <h4>{name}</h4>
-              <div className="genre">
-                {loc} · <span>{genre}</span>
+              <div className="artist-spotify-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.273a.75.75 0 01-1.032.25c-2.826-1.727-6.38-2.117-10.57-1.16a.75.75 0 01-.334-1.463c4.584-1.047 8.52-.596 11.687 1.34a.75.75 0 01.25 1.033zm1.47-3.27a.937.937 0 01-1.29.31c-3.233-1.987-8.163-2.563-11.986-1.403a.937.937 0 01-.548-1.793c4.37-1.336 9.8-.689 13.514 1.596a.937.937 0 01.31 1.29zm.127-3.408c-3.878-2.304-10.278-2.515-13.981-1.39a1.125 1.125 0 01-.651-2.152c4.248-1.286 11.306-1.038 15.768 1.608a1.125 1.125 0 01-1.136 1.934z"/>
+                </svg>
+                Listen on Spotify
               </div>
             </a>
           ))}
