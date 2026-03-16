@@ -234,34 +234,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LATEST POSTS */}
-      <section className="latest">
-        <div className="section-label">Recent</div>
-        <div className="section-title">From the Feed</div>
-        <div className="posts-grid">
-          {[
-            { thumb: "thumb-concerts", cat: "Concert Review", title: "Wuki at Sky SLC Was an Exercise in Pure Energy", meta: "Mar 11 · 4 min read" },
-            { thumb: "thumb-artists",  cat: "Artist Spotlight", title: "Orem's Indie Scene Is Quietly Exploding — Here's Who to Watch", meta: "Mar 9 · 6 min read" },
-            { thumb: "thumb-promo",    cat: "Industry", title: "5 Things Local Artists Should Know About Getting Press Coverage", meta: "Mar 7 · 7 min read" },
-            { thumb: "thumb-review",   cat: "Album Review", title: "New Drop: Local Producer Drops Project That Blends Folk and Trap", meta: "Mar 5 · 5 min read" },
-            { thumb: "thumb-local",    cat: "Scene Report", title: "Utah County's Music Scene: 2026 State of the Art", meta: "Mar 3 · 8 min read" },
-            { thumb: "thumb-feature",  cat: "Feature", title: "How Urban Lounge Became the Heartbeat of SLC's Indie Scene", meta: "Mar 1 · 10 min read" },
-          ].map(({ thumb, cat, title, meta }, i) => (
-            <a key={i} href="#" className="post-card fade-up">
-              <div className="post-thumb">
-                <div className={`post-thumb-inner ${thumb}`}>
-                  <div className="thumb-label">SFX</div>
-                </div>
-              </div>
-              <div className="post-body">
-                <div className="post-cat">{cat}</div>
-                <h3>{title}</h3>
-                <div className="meta">{meta}</div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
 
       {/* CONCERTS */}
       <section id="concerts">
