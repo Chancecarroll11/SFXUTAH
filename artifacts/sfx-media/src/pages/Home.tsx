@@ -206,26 +206,22 @@ export default function Home() {
         <div className="coverage-grid">
           {[
             {
-              icon: "🎤",
               title: "Concerts",
               desc: "On-the-ground coverage of live shows across Utah — from intimate club nights to major festival stages. Reviews, photos, and real-time updates.",
               num: "01",
             },
             {
-              icon: "🎵",
               title: "Local Artists",
               desc: "Deep-dive profiles, studio sessions, and interviews with the emerging and established artists shaping Utah's sound right now.",
               num: "02",
             },
             {
-              icon: "📡",
               title: "Promotion",
               desc: "Full-service artist and event promotion — social media campaigns, press releases, content creation, and audience growth strategies.",
               num: "03",
             },
-          ].map(({ icon, title, desc, num }) => (
+          ].map(({ title, desc, num }) => (
             <div key={title} className="coverage-card fade-up">
-              <span className="coverage-icon">{icon}</span>
               <h3>{title}</h3>
               <p>{desc}</p>
               <span className="count">{num}</span>
