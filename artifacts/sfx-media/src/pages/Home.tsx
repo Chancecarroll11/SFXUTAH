@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Gallery from "@/components/Gallery";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -343,18 +342,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* INSTAGRAM */}
       <section className="instagram" id="instagram">
-        <div className="ig-header">
-          <div>
-            <div className="section-label">Gallery</div>
-            <div className="section-title" style={{ marginBottom: 0 }}>Photo Gallery</div>
+        <div className="ig-showcase">
+          <div className="ig-showcase-grid">
+            {[1,2,3,4,5,6,7,8,9].map((n) => (
+              <div key={n} className={`ig-cell`}>
+                <div className={`ig-cell-inner ig-bg-${n}`} />
+                <div className="ig-cell-overlay" />
+              </div>
+            ))}
           </div>
-          <a href="https://www.instagram.com/sfx_utah" target="_blank" rel="noreferrer" className="ig-handle">
-            @sfx_utah
-          </a>
+          <div className="ig-showcase-cta">
+            <svg className="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <div className="section-label" style={{ marginBottom: 12 }}>Follow Along</div>
+            <div className="ig-showcase-handle">@sfx_utah</div>
+            <p className="ig-showcase-sub">
+              Concert coverage, artist features, and behind-the-scenes from every show — live on our Instagram.
+            </p>
+            <a
+              href="https://www.instagram.com/sfx_utah"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary ig-showcase-btn"
+            >
+              View on Instagram
+            </a>
+          </div>
         </div>
-        <Gallery />
       </section>
 
       {/* NEWSLETTER */}
