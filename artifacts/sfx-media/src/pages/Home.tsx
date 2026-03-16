@@ -132,7 +132,7 @@ export default function Home() {
         <div className="hero-eyebrow hero-eyebrow-centered">Utah's Independent Music Media</div>
         <div className="hero-actions hero-actions-centered">
           <a href="#vision" className="btn-primary">Our Vision</a>
-          <a href="#promo" className="btn-ghost">Work With Us</a>
+          <a href="/contact" className="btn-ghost">Work With Us</a>
         </div>
         <div className="hero-scroll">Scroll</div>
       </section>
