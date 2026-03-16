@@ -92,18 +92,22 @@ export default function Home() {
             { href: "#concerts", label: "Concerts" },
             { href: "#artists", label: "Artists" },
             { href: "#promo", label: "Promotion" },
-            { href: "#instagram", label: "Gallery" },
-          ].map(({ href, label }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className={activeSection === href.slice(1) ? "active" : ""}
-                onClick={() => setMobileNavOpen(false)}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+            { href: "https://www.instagram.com/sfx_utah", label: "Gallery" },
+          ].map(({ href, label }) => {
+            const isExternal = href.startsWith("http");
+            return (
+              <li key={href}>
+                <a
+                  href={href}
+                  className={!isExternal && activeSection === href.slice(1) ? "active" : ""}
+                  onClick={() => setMobileNavOpen(false)}
+                  {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
         <a href="/contact" className="nav-cta">Contact</a>
         <button className="hamburger" onClick={() => setMobileNavOpen((o) => !o)} aria-label="Menu">
@@ -194,57 +198,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED */}
-      <section className="featured" id="coverage">
-        <div className="section-label">Featured</div>
-        <div className="section-title">Latest Coverage</div>
-        <div className="featured-grid fade-up">
-          <div className="featured-main">
-            <div className="featured-main-bg" />
-            <div className="featured-main-glow" />
-            <span className="featured-badge">Concert Review</span>
-            <h2>Night One at The Complex: A New Chapter for Utah Hip-Hop</h2>
-            <p>
-              Last Friday's showcase brought together some of SLC's most exciting voices under one roof — a
-              defining moment for the local scene heading into summer.
-            </p>
-            <div className="article-meta">
-              <span className="author">SFX Team</span>
-              <span className="dot">·</span>
-              <span>March 14, 2026</span>
-              <span className="dot">·</span>
-              <span>8 min read</span>
-            </div>
-          </div>
-          <div className="featured-sidebar">
-            {[
-              {
-                cat: "Artist Spotlight",
-                title: "Meet Talon Cruz: Spanish Fork's Next Big Voice",
-                meta: "March 12, 2026 · 5 min read",
-              },
-              {
-                cat: "Interview",
-                title: "Kilby Court Turns 25 — We Talked to the Team",
-                meta: "March 10, 2026 · 6 min read",
-              },
-              {
-                cat: "Promotion",
-                title: "How SFX Media Helped Launch Provo's Breakout Act",
-                meta: "March 8, 2026 · 4 min read",
-              },
-            ].map(({ cat, title, meta }, i) => (
-              <a key={i} href="#" className="sidebar-card fade-up">
-                <div>
-                  <div className="cat">{cat}</div>
-                  <h3>{title}</h3>
-                </div>
-                <div className="meta">{meta}</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* COVERAGE AREAS */}
       <section id="what-we-do">
