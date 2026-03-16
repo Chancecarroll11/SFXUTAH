@@ -105,7 +105,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <a href="#newsletter" className="nav-cta">Subscribe</a>
+        <a href="/contact" className="nav-cta">Contact</a>
         <button className="hamburger" onClick={() => setMobileNavOpen((o) => !o)} aria-label="Menu">
           <span />
           <span />
