@@ -88,7 +88,7 @@ export default function Home() {
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[
-            { href: "#coverage", label: "Coverage" },
+            { href: "#home", label: "Home" },
             { href: "#concerts", label: "Concerts" },
             { href: "#artists", label: "Artists" },
             { href: "#promo", label: "Promotion" },
@@ -114,23 +114,21 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="hero" id="home">
+      <section className="hero hero-homepage" id="home">
         <div className="hero-bg" />
         <div className="hero-grid" />
-        <div className="hero-eyebrow">Utah's Independent Music Media</div>
-        <h1 className="hero-title">
+        <div className="hero-logo-wrap">
+          <img src="/sfx-logo.svg" alt="SFX Utah" className="hero-main-logo" />
+        </div>
+        <h1 className="hero-title hero-title-centered">
           <span className="red">SFX</span>
-          <br />
+          {" "}
           <span className="outline">MEDIA</span>
         </h1>
-        <div className="hero-sub">
-          <p className="hero-tagline">
-            Covering concerts, spotlighting local artists, and powering promotion across Utah and beyond.
-          </p>
-          <div className="hero-actions">
-            <a href="#coverage" className="btn-primary">Read Latest</a>
-            <a href="#promo" className="btn-ghost">Work With Us</a>
-          </div>
+        <div className="hero-eyebrow hero-eyebrow-centered">Utah's Independent Music Media</div>
+        <div className="hero-actions hero-actions-centered">
+          <a href="#vision" className="btn-primary">Our Vision</a>
+          <a href="#promo" className="btn-ghost">Work With Us</a>
         </div>
         <div className="hero-scroll">Scroll</div>
       </section>
@@ -158,6 +156,43 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* OUR VISION */}
+      <section className="vision-section" id="vision">
+        <div className="vision-inner fade-up">
+          <div className="vision-logo-wrap">
+            <img src="/sfx-logo.svg" alt="SFX Utah" className="vision-logo" />
+          </div>
+          <div className="vision-content">
+            <div className="section-label">Who We Are</div>
+            <h2 className="vision-title">Our Vision</h2>
+            <p className="vision-body">
+              SFX Media exists to tell the stories that Utah's music scene deserves to be told. We believe
+              every local artist, every packed venue, and every electric night deserves a spotlight — not
+              just on stage, but in print, online, and across every platform where music lives.
+            </p>
+            <p className="vision-body">
+              We're building a home for Utah's independent music culture: covering concerts with raw
+              authenticity, lifting up artists who grind every day, and connecting creators with the
+              audiences hungry for something real. Our work isn't coverage — it's community.
+            </p>
+            <div className="vision-pillars">
+              <div className="vision-pillar">
+                <div className="vision-pillar-num">01</div>
+                <div className="vision-pillar-label">Authentic Coverage</div>
+              </div>
+              <div className="vision-pillar">
+                <div className="vision-pillar-num">02</div>
+                <div className="vision-pillar-label">Artist First</div>
+              </div>
+              <div className="vision-pillar">
+                <div className="vision-pillar-num">03</div>
+                <div className="vision-pillar-label">Community Built</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FEATURED */}
       <section className="featured" id="coverage">
