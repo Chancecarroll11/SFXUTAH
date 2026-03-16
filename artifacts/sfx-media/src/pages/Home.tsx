@@ -279,32 +279,22 @@ export default function Home() {
         <div className="section-label">Upcoming</div>
         <div className="section-title">Concerts We're Covering</div>
         <div className="concerts-list">
-          {[
-            { month: "Mar", day: "21", name: "Breakaway Utah Festival", sub: "Multiple headliners · All Ages", venue: "Utah State Fairpark", city: "Salt Lake City", live: true },
-            { month: "Mar", day: "28", name: "Local Showcase Night Vol. 4", sub: "SFX Media Presents · 21+", venue: "The Urban Lounge", city: "Salt Lake City", live: true },
-            { month: "Apr", day: "04", name: "Me Gusta Festival 2026", sub: "Latin & Urban · All Ages", venue: "The Complex", city: "Salt Lake City", live: false },
-            { month: "Apr", day: "11", name: "Twilight Concert Series Kickoff", sub: "Outdoor Summer Series · All Ages", venue: "Gallivan Center", city: "Salt Lake City", live: false },
-            { month: "Apr", day: "18", name: "Kilby Court Underground Night", sub: "Indie / Alternative · 18+", venue: "Kilby Court", city: "Salt Lake City", live: false },
-          ].map(({ month, day, name, sub, venue, city, live }) => (
-            <a key={name} href="#" className="concert-row">
-              <div className="concert-date">
-                <small>{month}</small>
-                {day}
-              </div>
-              <div className="concert-info">
-                <h4>{name}</h4>
-                <span>{sub}</span>
-              </div>
-              <div className="concert-venue">
-                {venue}
-                <br />
-                <small>{city}</small>
-              </div>
-              <div className={`concert-tag${live ? " live" : ""}`}>
-                {live ? "Covering Live" : "Scheduled"}
-              </div>
-            </a>
-          ))}
+          <a href="https://sfxutah.square.site" target="_blank" rel="noreferrer" className="concert-row">
+            <div className="concert-date">
+              <small>Apr</small>
+              25
+            </div>
+            <div className="concert-info">
+              <h4>SFX II — Utah's Official Underground Rap Show</h4>
+              <span>SFX Media Presents · The Rise · Provo, UT · Doors 7 PM · Show 7:30 PM</span>
+            </div>
+            <div className="concert-venue">
+              The Rise
+              <br />
+              <small>Provo, Utah</small>
+            </div>
+            <div className="concert-tag live">Get Tickets</div>
+          </a>
         </div>
       </section>
 
