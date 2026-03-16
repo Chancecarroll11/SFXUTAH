@@ -298,6 +298,26 @@ export default function Home() {
               name: "Nvrbryan",
               spotify: "https://open.spotify.com/artist/4RgsN7LGrJ36tAs8tJ5kN1",
             },
+            {
+              initials: "KC",
+              name: "Kenney Cole",
+              spotify: "https://open.spotify.com/artist/18YVx2ELDur2my1yviglv5",
+            },
+            {
+              initials: "N$",
+              name: "N$ Willy",
+              spotify: "https://open.spotify.com/artist/1BGvXqgpLjeAgAapQCJsfL",
+            },
+            {
+              initials: "LT",
+              name: "Liltrandog",
+              spotify: "https://open.spotify.com/artist/2SF7o7lomS2hM1Db6hZcAh",
+            },
+            {
+              initials: "MN",
+              name: "MANUEL!",
+              spotify: "https://open.spotify.com/artist/2jBosUtmgmlUoZS9XL5C6F",
+            },
           ].map(({ initials, name, spotify }) => (
             <a
               key={name}
