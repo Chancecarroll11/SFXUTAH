@@ -354,7 +354,7 @@ export default function Home() {
               SFX Media doesn't just cover the scene — we help build it. We offer promotion packages for local
               artists and event organizers looking to grow their audience across Utah and beyond.
             </p>
-            <a href="mailto:contact@sfxmedia.com" className="btn-primary">Get in Touch</a>
+            <a href="/contact" className="btn-primary">Get in Touch</a>
           </div>
           <div className="promo-features">
             {[
