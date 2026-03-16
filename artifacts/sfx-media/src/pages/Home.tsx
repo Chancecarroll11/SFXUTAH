@@ -82,7 +82,8 @@ export default function Home() {
       {/* NAV */}
       <nav>
         <a href="#home" className="nav-logo">
-          <span>SFX</span> MEDIA
+          <img src="/sfx-logo.svg" alt="SFX Utah" className="nav-logo-img" />
+          <span className="nav-logo-text"><span>SFX</span> MEDIA</span>
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[
@@ -436,9 +437,12 @@ export default function Home() {
       <footer>
         <div className="footer-grid">
           <div className="footer-brand">
-            <span className="logo">
-              <span>SFX</span> MEDIA
-            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <img src="/sfx-logo.svg" alt="SFX Utah" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
+              <span className="logo" style={{ marginBottom: 0 }}>
+                <span>SFX</span> MEDIA
+              </span>
+            </div>
             <p>
               Utah's independent music media outlet. Covering concerts, spotlighting local artists, and
               handling promotion across the Beehive State.
