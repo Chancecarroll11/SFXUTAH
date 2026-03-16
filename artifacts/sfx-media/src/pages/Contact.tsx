@@ -20,8 +20,22 @@ export default function Contact() {
     e.preventDefault();
     if (!role || !form.name || !form.email || !form.message) return;
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, role }),
+      });
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   const set = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -170,6 +184,7 @@ export default function Contact() {
               <div className="contact-form-footer">
                 <p className="contact-form-note">
                   {!role && <span className="contact-form-warn">↑ Please select your role above</span>}
+                  {status === "error" && <span className="contact-form-warn">Something went wrong — please try again.</span>}
                 </p>
                 <button
                   className="btn-primary contact-submit"
