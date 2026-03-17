@@ -95,7 +95,7 @@ export default function Shop() {
               <span className="outline">CDs</span>
             </h1>
             <p className="contact-hero-sub">
-              Exclusive SFX Media compilations and artist releases. Physical CDs shipped directly to your door. Support Utah's underground music scene.
+              Exclusive SFX Media compilations and artist releases. Support Utah's underground music scene.
             </p>
           </div>
         </div>
