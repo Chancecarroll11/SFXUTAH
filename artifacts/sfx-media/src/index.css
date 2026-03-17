@@ -153,8 +153,7 @@ nav {
   color: var(--white);
 }
 .hero-title .outline {
-  -webkit-text-stroke: 1px rgba(242,237,232,0.2);
-  color: transparent;
+  color: var(--white);
 }
 .hero-title .red { color: var(--red); }
 .hero-sub {
