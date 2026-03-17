@@ -171,13 +171,13 @@ export default function Home() {
             <h2 className="vision-title">Our Vision</h2>
             <p className="vision-body">
               SFX Media exists to tell the stories that Utah's music scene deserves to be told. We believe
-              every local artist, every packed venue, and every electric night deserves a spotlight - not
+              every local artist, every packed venue, and every electric night deserves a spotlight, not
               just on stage, but in print, online, and across every platform where music lives.
             </p>
             <p className="vision-body">
               We're building a home for Utah's independent music culture: covering concerts with raw
               authenticity, lifting up artists who grind every day, and connecting creators with the
-              audiences hungry for something real. Our work isn't coverage - it's community.
+              audiences hungry for something real. Our work isn't coverage. It's community.
             </p>
             <div className="vision-pillars">
               <div className="vision-pillar">
@@ -206,7 +206,7 @@ export default function Home() {
           {[
             {
               title: "Concerts",
-              desc: "On-the-ground coverage of live shows across Utah - from intimate club nights to major festival stages. Reviews, photos, and real-time updates.",
+              desc: "On-the-ground coverage of live shows across Utah, from intimate club nights to major festival stages. Reviews, photos, and real-time updates.",
               num: "01",
             },
             {
@@ -216,7 +216,7 @@ export default function Home() {
             },
             {
               title: "Promotion",
-              desc: "Full-service artist and event promotion - social media campaigns, press releases, content creation, and audience growth strategies.",
+              desc: "Full-service artist and event promotion: social media campaigns, press releases, content creation, and audience growth strategies.",
               num: "03",
             },
           ].map(({ title, desc, num }) => (
@@ -241,7 +241,7 @@ export default function Home() {
               25
             </div>
             <div className="concert-info">
-              <h4>SFX II - Utah's Official Underground Rap Show</h4>
+              <h4>SFX II: Utah's Official Underground Rap Show</h4>
               <span>SFX Media Presents · The Rise · Provo, UT · Doors 7 PM · Show 7:30 PM</span>
             </div>
             <div className="concert-venue">
@@ -256,7 +256,7 @@ export default function Home() {
 
       {/* ARTISTS */}
       <section className="artists" id="artists">
-        <div className="section-label">SFX II - Apr 25 · The Rise, Provo</div>
+        <div className="section-label">SFX II: Apr 25 · The Rise, Provo</div>
         <div className="section-title">Artist Spotlight</div>
         <div className="artists-grid">
           {[
@@ -318,7 +318,7 @@ export default function Home() {
               Event Promotion
             </div>
             <p>
-              SFX Media doesn't just cover the scene - we help build it. We offer promotion packages for local
+              SFX Media doesn't just cover the scene. We help build it. We offer promotion packages for local
               artists and event organizers looking to grow their audience across Utah and beyond.
             </p>
             <a href="/contact" className="btn-primary">Get in Touch</a>
@@ -362,7 +362,7 @@ export default function Home() {
             <div className="section-label" style={{ marginBottom: 12 }}>Follow Along</div>
             <div className="ig-showcase-handle">@sfx_utah</div>
             <p className="ig-showcase-sub">
-              Concert coverage, artist features, and behind-the-scenes from every show - live on our Instagram.
+              Concert coverage, artist features, and behind-the-scenes from every show, live on our Instagram.
             </p>
             <a
               href="https://www.instagram.com/sfx_utah"
