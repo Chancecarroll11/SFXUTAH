@@ -325,13 +325,12 @@ export default function Home() {
           </div>
           <div className="promo-features">
             {[
-              { icon: "📱", title: "Social Media Campaigns", desc: "Targeted Instagram, TikTok, and X campaigns to grow your following and reach new fans before your show." },
-              { icon: "📝", title: "Press Coverage & Write-Ups", desc: "Professional editorial coverage, artist profiles, and event previews published on SFX Media's platform." },
-              { icon: "📸", title: "Photography & Content", desc: "Concert and promo photography delivered in a format ready for social media, press kits, and streaming profiles." },
-              { icon: "🔊", title: "Event Promotion", desc: "Full digital promotion for upcoming shows, including graphics, event pages, and audience targeting." },
-            ].map(({ icon, title, desc }) => (
+              { title: "Social Media Campaigns", desc: "Targeted Instagram, TikTok, and X campaigns to grow your following and reach new fans before your show." },
+              { title: "Press Coverage & Write-Ups", desc: "Professional editorial coverage, artist profiles, and event previews published on SFX Media's platform." },
+              { title: "Photography & Content", desc: "Concert and promo photography delivered in a format ready for social media, press kits, and streaming profiles." },
+              { title: "Event Promotion", desc: "Full digital promotion for upcoming shows, including graphics, event pages, and audience targeting." },
+            ].map(({ title, desc }) => (
               <div key={title} className="promo-feature fade-up">
-                <span className="promo-feature-icon">{icon}</span>
                 <div>
                   <h4>{title}</h4>
                   <p>{desc}</p>
