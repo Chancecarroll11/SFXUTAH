@@ -13,6 +13,7 @@ const GENRES = [
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") || "";
 
 export default function Submit() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -45,22 +46,37 @@ export default function Submit() {
   };
 
   return (
-    <div className="contact-page">
+    <>
       {/* NAV */}
       <nav>
         <a href="/" className="nav-logo">
           <img src="/sfx-logo.svg" alt="SFX Utah" className="nav-logo-img" />
           <span className="nav-logo-text"><span>SFX</span> MEDIA</span>
         </a>
-        <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/contact">Work With Us</a></li>
-          <li><a href="/submit" className="active">Submit Music</a></li>
+        <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
+          {[
+            { href: "/#home", label: "Home" },
+            { href: "/#concerts", label: "Concerts" },
+            { href: "/#artists", label: "Artists" },
+            { href: "/#promo", label: "Promotion" },
+            { href: "https://www.instagram.com/sfx_utah", label: "Gallery" },
+          ].map(({ href, label }) => (
+            <li key={href}>
+              <a href={href} onClick={() => setMobileNavOpen(false)}>{label}</a>
+            </li>
+          ))}
         </ul>
+        <a href="/contact" className="nav-cta" style={{ background: "var(--red)" }}>Work With Us</a>
+        <button className="hamburger" onClick={() => setMobileNavOpen((o) => !o)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
       </nav>
 
+      <main className="contact-page">
       {/* HERO */}
       <div className="contact-hero">
+        <div className="hero-bg" />
+        <div className="hero-grid" />
         <div className="contact-hero-inner">
           <div className="section-label">Local Artists</div>
           <h1 className="contact-hero-title">
@@ -215,6 +231,7 @@ export default function Submit() {
           </div>
         </div>
       </div>
-    </div>
+      </main>
+    </>
   );
 }
