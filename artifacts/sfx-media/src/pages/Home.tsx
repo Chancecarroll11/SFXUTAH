@@ -417,10 +417,10 @@ export default function Home() {
               handling promotion across the Beehive State.
             </p>
             <div className="social-links">
-              <a href="https://www.instagram.com/sfx_utah" target="_blank" rel="noreferrer" className="social-link">📷</a>
-              <a href="#" className="social-link">🐦</a>
-              <a href="#" className="social-link">🎵</a>
-              <a href="#" className="social-link">▶</a>
+              <a href="https://www.instagram.com/sfx_utah" target="_blank" rel="noreferrer" className="social-link">IG</a>
+              <a href="#" className="social-link">X</a>
+              <a href="#" className="social-link">TT</a>
+              <a href="#" className="social-link">YT</a>
             </div>
           </div>
           <div className="footer-col">
