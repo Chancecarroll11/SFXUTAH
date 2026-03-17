@@ -153,7 +153,7 @@ nav {
   color: var(--white);
 }
 .hero-title .outline {
-  color: var(--white);
+  color: var(--red);
 }
 .hero-title .red { color: var(--red); }
 .hero-sub {
