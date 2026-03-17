@@ -91,6 +91,7 @@ export default function Home() {
             { href: "#concerts", label: "Concerts" },
             { href: "#artists", label: "Artists" },
             { href: "#promo", label: "Promotion" },
+            { href: "/submit", label: "Submit Music" },
             { href: "https://www.instagram.com/sfx_utah", label: "Gallery" },
           ].map(({ href, label }) => {
             const isExternal = href.startsWith("http");
@@ -428,17 +429,18 @@ export default function Home() {
           <div className="footer-col">
             <h5>Services</h5>
             <ul>
-              {["Event Promotion", "Social Campaigns", "Press Coverage", "Photography", "Artist EPK"].map((l) => (
-                <li key={l}><a href="#">{l}</a></li>
+              {["Event Promotion", "Social Campaigns", "Press Coverage", "Photography"].map((l) => (
+                <li key={l}><a href="/contact">{l}</a></li>
               ))}
             </ul>
           </div>
           <div className="footer-col">
             <h5>Company</h5>
             <ul>
-              {["About SFX", "Our Team", "Submit Music", "Advertise", "Contact"].map((l) => (
-                <li key={l}><a href="#">{l}</a></li>
-              ))}
+              <li><a href="#">About SFX</a></li>
+              <li><a href="/submit">Submit Music</a></li>
+              <li><a href="#">Advertise</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
         </div>
