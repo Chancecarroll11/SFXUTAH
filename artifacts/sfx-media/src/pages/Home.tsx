@@ -87,7 +87,6 @@ export default function Home() {
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[
-            { href: "#home", label: "Home" },
             { href: "#concerts", label: "Concerts" },
             { href: "#artists", label: "Artists" },
             { href: "#promo", label: "Promotion" },
