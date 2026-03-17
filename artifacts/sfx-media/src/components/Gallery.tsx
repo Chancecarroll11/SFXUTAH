@@ -113,7 +113,7 @@ export default function Gallery() {
       {/* Grid */}
       {images.length === 0 ? (
         <div className="gallery-empty">
-          <p>No photos yet — upload some above to get started.</p>
+          <p>No photos yet - upload some above to get started.</p>
         </div>
       ) : (
         <div className="gallery-grid">

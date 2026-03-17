@@ -82,7 +82,7 @@ export default function Contact() {
             </h1>
             <p className="contact-hero-sub">
               SFX Media is always looking to connect with creative people who are passionate about Utah's music scene.
-              Tell us who you are and what you're about — let's build something together.
+              Tell us who you are and what you're about - let's build something together.
             </p>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Contact() {
         <div className="contact-body">
           {/* ROLE SELECTOR */}
           <div className="contact-section">
-            <div className="contact-section-label">01 — Who Are You?</div>
+            <div className="contact-section-label">01 - Who Are You?</div>
             <div className="role-grid">
               {ROLES.map((r) => (
                 <button
@@ -113,13 +113,13 @@ export default function Contact() {
               <div className="contact-success-icon">✓</div>
               <h2 className="contact-success-title">Message Received</h2>
               <p className="contact-success-body">
-                Thanks for reaching out, <strong>{form.name}</strong>. We'll get back to you soon — keep making noise.
+                Thanks for reaching out, <strong>{form.name}</strong>. We'll get back to you soon - keep making noise.
               </p>
               <a href="/" className="btn-primary" style={{ marginTop: 32 }}>Back to Home</a>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="contact-section-label">02 — Your Info</div>
+              <div className="contact-section-label">02 - Your Info</div>
               <div className="contact-form-row">
                 <div className="contact-field">
                   <label className="contact-label">Full Name *</label>
@@ -158,7 +158,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-section-label" style={{ marginTop: 48 }}>03 — Tell Us More</div>
+              <div className="contact-section-label" style={{ marginTop: 48 }}>03 - Tell Us More</div>
               <div className="contact-field">
                 <label className="contact-label">What Are You Looking For? *</label>
                 <textarea
@@ -184,7 +184,7 @@ export default function Contact() {
               <div className="contact-form-footer">
                 <p className="contact-form-note">
                   {!role && <span className="contact-form-warn">↑ Please select your role above</span>}
-                  {status === "error" && <span className="contact-form-warn">Something went wrong — please try again.</span>}
+                  {status === "error" && <span className="contact-form-warn">Something went wrong - please try again.</span>}
                 </p>
                 <button
                   className="btn-primary contact-submit"
@@ -208,7 +208,7 @@ export default function Contact() {
             <div className="contact-info-divider" />
             <div className="contact-info-item">
               <div className="contact-info-label">Next Show</div>
-              <div className="contact-info-value">SFX II — Apr 25, The Rise, Provo</div>
+              <div className="contact-info-value">SFX II - Apr 25, The Rise, Provo</div>
             </div>
             <div className="contact-info-divider" />
             <div className="contact-info-item">
