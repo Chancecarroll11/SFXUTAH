@@ -89,13 +89,13 @@ export default function Shop() {
           <div className="hero-bg" />
           <div className="hero-grid" />
           <div className="contact-hero-inner">
-            <div className="section-label">SFX Media Store</div>
+            <div className="section-label">SFX Utah Store</div>
             <h1 className="contact-hero-title">
               <span className="red">Shop</span>{" "}
               <span className="outline">CDs</span>
             </h1>
             <p className="contact-hero-sub">
-              Exclusive SFX Media compilations and artist releases. Support Utah's underground music scene.
+              Exclusive SFX Utah compilations and artist releases. Support Utah's underground music scene.
             </p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function Shop() {
                           <line x1="2" y1="40" x2="78" y2="40" stroke="rgba(255,30,173,0.15)" strokeWidth="1" />
                           <line x1="40" y1="2" x2="40" y2="78" stroke="rgba(255,30,173,0.15)" strokeWidth="1" />
                         </svg>
-                        <div className="shop-card-art-label">SFX MEDIA</div>
+                        <div className="shop-card-art-label">SFX UTAH</div>
                       </div>
                     )}
                   </div>

@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "SFX Media"
+title = "SFX Utah"
 version = "1.0.0"
 id = "artifacts/sfx-media"
 router = "path"

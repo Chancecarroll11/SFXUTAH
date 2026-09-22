@@ -83,7 +83,7 @@ export default function Home() {
       <nav>
         <a href="#home" className="nav-logo">
           <img src="/sfx-logo.svg" alt="SFX Utah" className="nav-logo-img" />
-          <span className="nav-logo-text"><span>SFX</span> MEDIA</span>
+          <span className="nav-logo-text"><span>SFX</span> UTAH</span>
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[
@@ -127,7 +127,7 @@ export default function Home() {
         <h1 className="hero-title hero-title-centered">
           <span className="red">SFX</span>
           {" "}
-          <span className="outline">MEDIA</span>
+          <span className="outline">UTAH</span>
         </h1>
         <div className="hero-eyebrow hero-eyebrow-centered">Utah's Independent Music Media</div>
         <div className="hero-actions hero-actions-centered">
@@ -147,14 +147,14 @@ export default function Home() {
             "Utah Music Scene",
             "Photography",
             "Reviews & Interviews",
-            "SFX Media Utah",
+            "SFX Utah",
             "Concert Coverage",
             "Local Artist Spotlight",
             "Event Promotion",
             "Utah Music Scene",
             "Photography",
             "Reviews & Interviews",
-            "SFX Media Utah",
+            "SFX Utah",
           ].map((item, i) => (
             <div key={i} className="ticker-item">{item}</div>
           ))}
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="section-label">Who We Are</div>
             <h2 className="vision-title">Our Vision</h2>
             <p className="vision-body">
-              SFX Media exists to tell the stories that Utah's music scene deserves to be told. We believe
+              SFX Utah exists to tell the stories that Utah's music scene deserves to be told. We believe
               every local artist, every packed venue, and every electric night deserves a spotlight, not
               just on stage, but in print, online, and across every platform where music lives.
             </p>
@@ -243,7 +243,7 @@ export default function Home() {
             </div>
             <div className="concert-info">
               <h4>SFX II: Utah's Official Underground Rap Show</h4>
-              <span>SFX Media Presents · The Rise · Provo, UT · Doors 7 PM · Show 7:30 PM</span>
+              <span>SFX Utah Presents · The Rise · Provo, UT · Doors 7 PM · Show 7:30 PM</span>
             </div>
             <div className="concert-venue">
               The Rise
@@ -319,7 +319,7 @@ export default function Home() {
               Event Promotion
             </div>
             <p>
-              SFX Media doesn't just cover the scene. We help build it. We offer promotion packages for local
+              SFX Utah doesn't just cover the scene. We help build it. We offer promotion packages for local
               artists and event organizers looking to grow their audience across Utah and beyond.
             </p>
             <a href="/contact" className="btn-primary">Get in Touch</a>
@@ -327,7 +327,7 @@ export default function Home() {
           <div className="promo-features">
             {[
               { title: "Social Media Campaigns", desc: "Targeted Instagram, TikTok, and X campaigns to grow your following and reach new fans before your show." },
-              { title: "Press Coverage & Write-Ups", desc: "Professional editorial coverage, artist profiles, and event previews published on SFX Media's platform." },
+              { title: "Press Coverage & Write-Ups", desc: "Professional editorial coverage, artist profiles, and event previews published on SFX Utah's platform." },
               { title: "Photography & Content", desc: "Concert and promo photography delivered in a format ready for social media, press kits, and streaming profiles." },
               { title: "Event Promotion", desc: "Full digital promotion for upcoming shows, including graphics, event pages, and audience targeting." },
             ].map(({ title, desc }) => (
@@ -381,7 +381,7 @@ export default function Home() {
         <div className="section-label">Stay Connected</div>
         <div className="section-title">Never Miss a Show</div>
         <p>
-          Get Utah concert news, artist spotlights, and SFX Media coverage drops delivered straight to your
+          Get Utah concert news, artist spotlights, and SFX Utah coverage drops delivered straight to your
           inbox. No noise, just the good stuff.
         </p>
         <div className="newsletter-form">
@@ -410,7 +410,7 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <img src="/sfx-logo.svg" alt="SFX Utah" style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
               <span className="logo" style={{ marginBottom: 0 }}>
-                <span>SFX</span> MEDIA
+                <span>SFX</span> UTAH
               </span>
             </div>
             <p>
@@ -445,7 +445,7 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 SFX Media. Utah, USA.</span>
+          <span>© 2026 SFX Utah. Utah, USA.</span>
           <span>Built for the scene.</span>
           <div style={{ display: "flex", gap: "20px" }}>
             <a href="#">Privacy</a>

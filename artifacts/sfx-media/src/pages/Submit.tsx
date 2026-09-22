@@ -85,7 +85,7 @@ export default function Submit() {
           </h1>
           <p className="contact-hero-sub">
             Are you a Utah artist? We want to hear from you. Submit your music for a chance to be featured
-            on SFX Media's platform, spotlighted on our Instagram, and covered at our events.
+            on SFX Utah's platform, spotlighted on our Instagram, and covered at our events.
           </p>
         </div>
       </div>
@@ -189,7 +189,7 @@ export default function Submit() {
               <label className="contact-label">Tell Us About Yourself *</label>
               <textarea
                 className="contact-input contact-textarea"
-                placeholder="Who are you as an artist? What's your sound? Do you perform live? What kind of coverage or feature are you looking for on SFX Media?"
+                placeholder="Who are you as an artist? What's your sound? Do you perform live? What kind of coverage or feature are you looking for on SFX Utah?"
                 rows={6}
                 value={form.message}
                 onChange={set("message")}

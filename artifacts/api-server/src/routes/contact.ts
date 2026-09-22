@@ -38,7 +38,7 @@ router.post("/contact", async (req, res) => {
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; background: #0e0e0e; color: #f2ede8; padding: 40px; border-radius: 4px;">
       <div style="border-bottom: 2px solid #FF1EAD; padding-bottom: 20px; margin-bottom: 28px;">
-        <h1 style="font-size: 28px; margin: 0; color: #FF1EAD; letter-spacing: 2px;">SFX MEDIA</h1>
+        <h1 style="font-size: 28px; margin: 0; color: #FF1EAD; letter-spacing: 2px;">SFX UTAH</h1>
         <p style="margin: 4px 0 0; color: #888; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">New Contact Submission</p>
       </div>
 
@@ -67,16 +67,16 @@ router.post("/contact", async (req, res) => {
         <div style="background: #141414; border-left: 3px solid #FF1EAD; padding: 16px 20px; font-size: 15px; line-height: 1.7; color: #ccc; white-space: pre-wrap;">${message}</div>
       </div>
 
-      <p style="margin-top: 32px; font-size: 12px; color: #555;">Sent via SFX Media contact form · sfxmedia.com</p>
+      <p style="margin-top: 32px; font-size: 12px; color: #555;">Sent via SFX Utah contact form</p>
     </div>
   `;
 
   try {
     await transporter.sendMail({
-      from: `"SFX Media" <${gmailUser}>`,
+      from: `"SFX Utah" <${gmailUser}>`,
       to: "chancecarroll07@gmail.com",
       replyTo: email,
-      subject: `[SFX Media] New inquiry from ${name} (${roleLabel})`,
+      subject: `[SFX Utah] New inquiry from ${name} (${roleLabel})`,
       html,
     });
     res.json({ success: true });

@@ -81,7 +81,7 @@ export default function Contact() {
               <span className="outline">With Us</span>
             </h1>
             <p className="contact-hero-sub">
-              SFX Media is always looking to connect with creative people who are passionate about Utah's music scene.
+              SFX Utah is always looking to connect with creative people who are passionate about Utah's music scene.
               Tell us who you are and what you're about. Let's build something together.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function Contact() {
                       ? "Tell us about your music, upcoming shows, and what kind of coverage you're looking for..."
                       : role === "promoter"
                       ? "Tell us about your events, venues, and what kind of promotional partnership you have in mind..."
-                      : "Tell us a bit about yourself and what brings you to SFX Media..."
+                      : "Tell us a bit about yourself and what brings you to SFX Utah..."
                   }
                   rows={6}
                   value={form.message}
