@@ -239,6 +239,16 @@ nav {
   margin-bottom: 36px;
 }
 .hero-eyebrow-centered::before { display: none; }
+.hero-description {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: -18px auto 32px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
 .hero-actions-centered {
   position: relative;
   display: flex;

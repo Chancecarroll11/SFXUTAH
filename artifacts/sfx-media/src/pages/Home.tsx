@@ -129,10 +129,13 @@ export default function Home() {
           {" "}
           <span className="outline">UTAH</span>
         </h1>
-        <div className="hero-eyebrow hero-eyebrow-centered">Utah's Independent Music Media</div>
+          <div className="hero-eyebrow hero-eyebrow-centered">Local Shows · Local Artists · Utah Music</div>
+          <p className="hero-description">
+            We put on local concerts, discover Utah artists, and bring the scene closer together.
+          </p>
         <div className="hero-actions hero-actions-centered">
-          <a href="#vision" className="btn-primary">Our Vision</a>
-          <a href="/contact" className="btn-ghost">Work With Us</a>
+            <a href="#concerts" className="btn-primary">See Upcoming Shows</a>
+            <a href="/submit" className="btn-ghost">Submit Your Music</a>
         </div>
         <div className="hero-scroll">Scroll</div>
       </section>
@@ -141,19 +144,19 @@ export default function Home() {
       <div className="ticker">
         <div className="ticker-track">
           {[
-            "Concert Coverage",
-            "Local Artist Spotlight",
-            "Event Promotion",
+            "Local Shows",
+            "Artist Submissions",
+            "Show Promotion",
             "Utah Music Scene",
-            "Photography",
-            "Reviews & Interviews",
+            "Live Music",
+            "Scene Building",
             "SFX Utah",
-            "Concert Coverage",
-            "Local Artist Spotlight",
-            "Event Promotion",
+            "Local Shows",
+            "Artist Submissions",
+            "Show Promotion",
             "Utah Music Scene",
-            "Photography",
-            "Reviews & Interviews",
+            "Live Music",
+            "Scene Building",
             "SFX Utah",
           ].map((item, i) => (
             <div key={i} className="ticker-item">{item}</div>
@@ -168,30 +171,29 @@ export default function Home() {
             <img src="/sfx-logo.svg" alt="SFX Utah" className="vision-logo" />
           </div>
           <div className="vision-content">
-            <div className="section-label">Who We Are</div>
-            <h2 className="vision-title">Our Vision</h2>
+            <div className="section-label">The SFX Utah Mission</div>
+            <h2 className="vision-title">Put Utah<br />On Stage</h2>
             <p className="vision-body">
-              SFX Utah exists to tell the stories that Utah's music scene deserves to be told. We believe
-              every local artist, every packed venue, and every electric night deserves a spotlight, not
-              just on stage, but in print, online, and across every platform where music lives.
+              SFX Utah exists to make more room for Utah music. We put on local shows, take submissions from
+              artists ready for their next stage, and connect the right people to build lineups that move the
+              scene forward.
             </p>
             <p className="vision-body">
-              We're building a home for Utah's independent music culture: covering concerts with raw
-              authenticity, lifting up artists who grind every day, and connecting creators with the
-              audiences hungry for something real. Our work isn't coverage. It's community.
+              From the first submission to the last song of the night, we're here to elevate the artists,
+              venues, and fans that make Utah's music culture worth showing up for.
             </p>
             <div className="vision-pillars">
               <div className="vision-pillar">
                 <div className="vision-pillar-num">01</div>
-                <div className="vision-pillar-label">Authentic Coverage</div>
+                <div className="vision-pillar-label">Local Shows</div>
               </div>
               <div className="vision-pillar">
                 <div className="vision-pillar-num">02</div>
-                <div className="vision-pillar-label">Artist First</div>
+                <div className="vision-pillar-label">Open Submissions</div>
               </div>
               <div className="vision-pillar">
                 <div className="vision-pillar-num">03</div>
-                <div className="vision-pillar-label">Community Built</div>
+                <div className="vision-pillar-label">Scene First</div>
               </div>
             </div>
           </div>
@@ -201,23 +203,23 @@ export default function Home() {
 
       {/* COVERAGE AREAS */}
       <section id="what-we-do">
-        <div className="section-label">What We Do</div>
-        <div className="section-title">Our Coverage</div>
+        <div className="section-label">How We Move The Scene</div>
+        <div className="section-title">More Music.<br />More Together.</div>
         <div className="coverage-grid">
           {[
             {
-              title: "Concerts",
-              desc: "On-the-ground coverage of live shows across Utah, from intimate club nights to major festival stages. Reviews, photos, and real-time updates.",
+              title: "Put On Shows",
+              desc: "We build local lineups, partner with venues, and create live nights that give Utah artists a room full of people ready to listen.",
               num: "01",
             },
             {
-              title: "Local Artists",
-              desc: "Deep-dive profiles, studio sessions, and interviews with the emerging and established artists shaping Utah's sound right now.",
+              title: "Find The Next Wave",
+              desc: "Artists can submit their music directly to SFX Utah for a chance to be featured, booked, and brought into the local conversation.",
               num: "02",
             },
             {
-              title: "Promotion",
-              desc: "Full-service artist and event promotion: social media campaigns, press releases, content creation, and audience growth strategies.",
+              title: "Build The Audience",
+              desc: "We turn great music into momentum through show promotion, artist spotlights, and content that gets more Utah fans in the room.",
               num: "03",
             },
           ].map(({ title, desc, num }) => (
@@ -233,8 +235,8 @@ export default function Home() {
 
       {/* CONCERTS */}
       <section id="concerts">
-        <div className="section-label">Upcoming</div>
-        <div className="section-title">Concerts We're Covering</div>
+        <div className="section-label">SFX Presents</div>
+        <div className="section-title">Upcoming Shows</div>
         <div className="concerts-list">
           <a href="https://sfxutah.square.site" target="_blank" rel="noreferrer" className="concert-row">
             <div className="concert-date">
@@ -257,8 +259,8 @@ export default function Home() {
 
       {/* ARTISTS */}
       <section className="artists" id="artists">
-        <div className="section-label">SFX II: Apr 25 · The Rise, Provo</div>
-        <div className="section-title">Artist Spotlight</div>
+        <div className="section-label">Artists On The Bill</div>
+        <div className="section-title">Meet The Scene</div>
         <div className="artists-grid">
           {[
             {
@@ -312,24 +314,24 @@ export default function Home() {
         <div className="promo-bg" />
         <div className="promo-inner">
           <div className="promo-text">
-            <div className="section-label">Work With Us</div>
+            <div className="section-label">For Artists &amp; Venues</div>
             <div className="section-title" style={{ marginBottom: "24px" }}>
-              Artist &amp;
+              Bring Your
               <br />
-              Event Promotion
+              Show To Life
             </div>
             <p>
-              SFX Utah doesn't just cover the scene. We help build it. We offer promotion packages for local
-              artists and event organizers looking to grow their audience across Utah and beyond.
+              Have a show to fill, a new artist to introduce, or a sound that deserves a bigger room? SFX Utah
+              helps local artists and venues turn good ideas into nights people remember.
             </p>
-            <a href="/contact" className="btn-primary">Get in Touch</a>
+            <a href="/contact" className="btn-primary">Plan A Show</a>
           </div>
           <div className="promo-features">
             {[
-              { title: "Social Media Campaigns", desc: "Targeted Instagram, TikTok, and X campaigns to grow your following and reach new fans before your show." },
-              { title: "Press Coverage & Write-Ups", desc: "Professional editorial coverage, artist profiles, and event previews published on SFX Utah's platform." },
-              { title: "Photography & Content", desc: "Concert and promo photography delivered in a format ready for social media, press kits, and streaming profiles." },
-              { title: "Event Promotion", desc: "Full digital promotion for upcoming shows, including graphics, event pages, and audience targeting." },
+              { title: "Show Promotion", desc: "Targeted social campaigns, event creative, and direct audience outreach to get more people through the door." },
+              { title: "Artist Submissions", desc: "A direct path for Utah artists to share their music, get discovered, and be considered for upcoming shows." },
+              { title: "Live Content", desc: "Concert photography, artist features, and behind-the-scenes content that keeps the energy going after the show." },
+              { title: "Scene Building", desc: "Thoughtful lineups and partnerships that connect artists, venues, and fans across Utah." },
             ].map(({ title, desc }) => (
               <div key={title} className="promo-feature fade-up">
                 <div>
@@ -362,7 +364,7 @@ export default function Home() {
             <div className="section-label" style={{ marginBottom: 12 }}>Follow Along</div>
             <div className="ig-showcase-handle">@sfx_utah</div>
             <p className="ig-showcase-sub">
-              Concert coverage, artist features, and behind-the-scenes from every show, live on our Instagram.
+              Show announcements, artist features, and behind-the-scenes from every SFX Utah event.
             </p>
             <a
               href="https://www.instagram.com/sfx_utah"
@@ -381,7 +383,7 @@ export default function Home() {
         <div className="section-label">Stay Connected</div>
         <div className="section-title">Never Miss a Show</div>
         <p>
-          Get Utah concert news, artist spotlights, and SFX Utah coverage drops delivered straight to your
+          Get Utah show announcements, artist spotlights, and SFX Utah event updates delivered straight to your
           inbox. No noise, just the good stuff.
         </p>
         <div className="newsletter-form">
@@ -414,14 +416,14 @@ export default function Home() {
               </span>
             </div>
             <p>
-              Utah's independent music media outlet. Covering concerts, spotlighting local artists, and
-              handling promotion across the Beehive State.
+              Utah's local concert promoter. Putting on shows, discovering artists, and elevating the music
+              scene across the Beehive State.
             </p>
           </div>
           <div className="footer-col">
             <h5>Coverage</h5>
             <ul>
-              {["Concert Reviews", "Artist Spotlights", "Album Reviews", "Scene Reports", "Interviews"].map((l) => (
+              {["Upcoming Shows", "Artist Submissions", "Local Lineups", "Scene Features", "Live Content"].map((l) => (
                 <li key={l}><a href="#">{l}</a></li>
               ))}
             </ul>
@@ -429,7 +431,7 @@ export default function Home() {
           <div className="footer-col">
             <h5>Services</h5>
             <ul>
-              {["Event Promotion", "Social Campaigns", "Press Coverage", "Photography"].map((l) => (
+              {["Show Promotion", "Artist Features", "Venue Partnerships", "Photography"].map((l) => (
                 <li key={l}><a href="/contact">{l}</a></li>
               ))}
             </ul>

@@ -78,14 +78,14 @@ export default function Submit() {
         <div className="hero-bg" />
         <div className="hero-grid" />
         <div className="contact-hero-inner">
-          <div className="section-label">Local Artists</div>
+          <div className="section-label">Get On The Bill</div>
           <h1 className="contact-hero-title">
             Submit Your<br />
             <span className="outline">Music</span>
           </h1>
           <p className="contact-hero-sub">
-            Are you a Utah artist? We want to hear from you. Submit your music for a chance to be featured
-            on SFX Utah's platform, spotlighted on our Instagram, and covered at our events.
+            Are you a Utah artist ready for your next room? Send us your music for a chance to be featured,
+            considered for upcoming SFX Utah shows, and connected with the local scene.
           </p>
         </div>
       </div>
@@ -206,7 +206,7 @@ export default function Submit() {
                 type="submit"
                 disabled={status === "sending"}
               >
-                {status === "sending" ? "Sending..." : "Submit for Feature"}
+                {status === "sending" ? "Sending..." : "Submit To SFX Utah"}
               </button>
             </div>
           </form>
