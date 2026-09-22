@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -8,40 +8,6 @@ export default function Home() {
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
   const [popupEmail, setPopupEmail] = useState("");
   const [popupStatus, setPopupStatus] = useState<"idle" | "success" | "error">("idle");
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    document.body.classList.add("custom-cursor-page");
-    const cursor = cursorRef.current;
-    if (!cursor) return () => document.body.classList.remove("custom-cursor-page");
-
-    const onMove = (e: MouseEvent) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-    };
-
-    const expandEls = document.querySelectorAll(
-      "a, button, .post-card, .sidebar-card, .concert-row, .artist-card, .ig-cell"
-    );
-    const expand = () => cursor.classList.add("expand");
-    const shrink = () => cursor.classList.remove("expand");
-
-    document.addEventListener("mousemove", onMove);
-    expandEls.forEach((el) => {
-      el.addEventListener("mouseenter", expand);
-      el.addEventListener("mouseleave", shrink);
-    });
-
-    return () => {
-      document.removeEventListener("mousemove", onMove);
-      expandEls.forEach((el) => {
-        el.removeEventListener("mouseenter", expand);
-        el.removeEventListener("mouseleave", shrink);
-      });
-      document.body.classList.remove("custom-cursor-page");
-    };
-  }, []);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -128,8 +94,6 @@ export default function Home() {
 
   return (
     <>
-      <div className="cursor" ref={cursorRef} />
-
       {/* NAV */}
       <nav>
         <a href="#home" className="nav-logo">
@@ -171,9 +135,6 @@ export default function Home() {
       <section className="hero hero-homepage" id="home">
         <div className="hero-bg" />
         <div className="hero-grid" />
-        <div className="hero-logo-wrap">
-          <img src="/sfx-utah-logo.png" alt="SFX Utah" className="hero-main-logo" />
-        </div>
         <h1 className="hero-title hero-title-centered">
           <span className="red">SFX</span>
           {" "}
