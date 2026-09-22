@@ -62,8 +62,8 @@ export default function Shop() {
     <>
       <nav>
         <a href="/" className="nav-logo">
-          <img src="/sfx-logo.svg" alt="SFX Utah" className="nav-logo-img" />
-          <span className="nav-logo-text"><span>SFX</span> MEDIA</span>
+          <img src="/sfx-utah-logo.jpg" alt="SFX Utah" className="nav-logo-img" />
+          <span className="nav-logo-text"><span>SFX</span> UTAH</span>
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[

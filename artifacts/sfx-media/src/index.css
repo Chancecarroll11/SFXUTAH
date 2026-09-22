@@ -23,21 +23,42 @@ body {
   color: var(--white);
   font-family: var(--font-body);
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
+.custom-cursor-page { cursor: none; }
 .cursor {
-  width: 10px; height: 10px;
-  background: var(--red);
+  width: 24px; height: 24px;
+  background: transparent;
+  border: 1px solid var(--red);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s, height 0.2s, background 0.2s;
+  transition: transform 0.1s ease, width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
   mix-blend-mode: difference;
 }
-.cursor.expand { width: 40px; height: 40px; background: var(--white); }
+.cursor::before,
+.cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--red);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+.cursor::before { width: 1px; height: 34px; }
+.cursor::after { width: 34px; height: 1px; }
+.cursor.expand {
+  width: 48px;
+  height: 48px;
+  border-color: var(--white);
+  background: rgba(255, 30, 173, 0.14);
+}
+.cursor.expand::before { height: 54px; background: var(--white); }
+.cursor.expand::after { width: 54px; background: var(--white); }
 
 body::before {
   content: '';
@@ -65,7 +86,8 @@ nav {
 .nav-logo-img {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 4px;
+  object-fit: contain;
 }
 .nav-logo-text {
   font-family: var(--font-display);
@@ -219,6 +241,7 @@ nav {
 .hero-main-logo {
   width: clamp(140px, 22vw, 280px);
   height: auto;
+  object-fit: contain;
   filter: drop-shadow(0 0 40px rgba(255,30,173,0.5)) drop-shadow(0 0 80px rgba(255,30,173,0.2));
   animation: logo-pulse 4s ease-in-out infinite;
 }
@@ -281,6 +304,7 @@ nav {
 .vision-logo {
   width: 200px;
   height: auto;
+  object-fit: contain;
   filter: drop-shadow(0 0 24px rgba(255,30,173,0.3));
 }
 .vision-title {
