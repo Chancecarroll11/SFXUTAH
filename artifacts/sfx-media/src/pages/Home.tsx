@@ -133,7 +133,7 @@ export default function Home() {
       {/* NAV */}
       <nav>
         <a href="#home" className="nav-logo">
-          <img src="/sfx-utah-logo.jpg" alt="SFX Utah" className="nav-logo-img" />
+          <img src="/sfx-utah-logo.png" alt="SFX Utah" className="nav-logo-img" />
           <span className="nav-logo-text"><span>SFX</span> UTAH</span>
         </a>
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
@@ -172,7 +172,7 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="hero-grid" />
         <div className="hero-logo-wrap">
-          <img src="/sfx-utah-logo.jpg" alt="SFX Utah" className="hero-main-logo" />
+          <img src="/sfx-utah-logo.png" alt="SFX Utah" className="hero-main-logo" />
         </div>
         <h1 className="hero-title hero-title-centered">
           <span className="red">SFX</span>
@@ -218,7 +218,7 @@ export default function Home() {
       <section className="vision-section" id="vision">
         <div className="vision-inner fade-up">
           <div className="vision-logo-wrap">
-            <img src="/sfx-utah-logo.jpg" alt="SFX Utah" className="vision-logo" />
+            <img src="/sfx-utah-logo.png" alt="SFX Utah" className="vision-logo" />
           </div>
           <div className="vision-content">
             <div className="section-label">The SFX Utah Mission</div>
@@ -424,7 +424,7 @@ export default function Home() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-              <img src="/sfx-utah-logo.jpg" alt="SFX Utah" style={{ width: "48px", height: "48px", borderRadius: "4px" }} />
+              <img src="/sfx-utah-logo.png" alt="SFX Utah" style={{ width: "48px", height: "48px", borderRadius: "4px" }} />
               <span className="logo" style={{ marginBottom: 0 }}>
                 <span>SFX</span> UTAH
               </span>

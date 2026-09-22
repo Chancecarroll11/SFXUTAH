@@ -241,6 +241,7 @@ nav {
 .hero-main-logo {
   width: clamp(140px, 22vw, 280px);
   height: auto;
+  border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 0 40px rgba(255,30,173,0.5)) drop-shadow(0 0 80px rgba(255,30,173,0.2));
   animation: logo-pulse 4s ease-in-out infinite;
