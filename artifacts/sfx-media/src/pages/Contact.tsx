@@ -53,7 +53,6 @@ export default function Contact() {
           {[
             { href: "/#home", label: "Home" },
             { href: "/#concerts", label: "Concerts" },
-            { href: "/#artists", label: "Artists" },
             { href: "/#promo", label: "Promotion" },
             { href: "/#instagram", label: "Gallery" },
           ].map(({ href, label }) => (

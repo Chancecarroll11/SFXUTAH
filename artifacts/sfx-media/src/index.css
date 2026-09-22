@@ -1533,3 +1533,142 @@ footer {
   .shop-body { padding: 40px 20px 80px; }
   .shop-grid { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* EMAIL LIST POPUP */
+.email-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  animation: popup-fade-in 0.25s ease-out;
+}
+@keyframes popup-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.email-popup {
+  width: min(100%, 560px);
+  position: relative;
+  padding: 56px 56px 52px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255,30,173,0.2), transparent 34%),
+    linear-gradient(145deg, #181018 0%, #0d0b0e 100%);
+  border: 1px solid rgba(255, 30, 173, 0.45);
+  box-shadow: 0 24px 100px rgba(0, 0, 0, 0.65), 0 0 80px rgba(255, 30, 173, 0.12);
+  animation: popup-rise-in 0.35s ease-out;
+}
+@keyframes popup-rise-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.email-popup::after {
+  content: "SFX UTAH";
+  position: absolute;
+  right: -28px;
+  bottom: 6px;
+  color: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-display);
+  font-size: 92px;
+  letter-spacing: 4px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+.email-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.email-popup-close:hover { border-color: var(--red); color: var(--white); }
+.email-popup h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 20px;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 76px);
+  line-height: 0.9;
+  letter-spacing: 1px;
+}
+.email-popup h2 span { color: var(--red); }
+.email-popup > p,
+.email-popup-description {
+  position: relative;
+  z-index: 1;
+  max-width: 390px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.email-popup-form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+}
+.email-popup-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  outline: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  font: inherit;
+}
+.email-popup-form input:focus { border-color: var(--red); }
+.email-popup-form input::placeholder { color: #777; }
+.email-popup-form .btn-primary { flex-shrink: 0; padding: 14px 22px; }
+.email-popup-note,
+.email-popup-error {
+  position: relative;
+  z-index: 1;
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: #777;
+}
+.email-popup-error { color: var(--red); }
+.email-popup-success {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+}
+.email-popup-success p { margin: 0; line-height: 1.6; }
+.email-popup-success-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .email-popup { padding: 52px 24px 32px; }
+  .email-popup-form { flex-direction: column; }
+  .email-popup-form .btn-primary { width: 100%; }
+  .email-popup::after { font-size: 62px; right: -34px; }
+}

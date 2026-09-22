@@ -57,7 +57,6 @@ export default function Submit() {
           {[
             { href: "/#home", label: "Home" },
             { href: "/#concerts", label: "Concerts" },
-            { href: "/#artists", label: "Artists" },
             { href: "/#promo", label: "Promotion" },
             { href: "https://www.instagram.com/sfx_utah", label: "Gallery" },
           ].map(({ href, label }) => (

@@ -5,6 +5,9 @@ export default function Home() {
   const [subStatus, setSubStatus] = useState<"idle" | "success" | "error">("idle");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const [popupEmail, setPopupEmail] = useState("");
+  const [popupStatus, setPopupStatus] = useState<"idle" | "success" | "error">("idle");
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,6 +67,33 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (
+      window.localStorage.getItem("sfx-email-list-joined") ||
+      window.localStorage.getItem("sfx-email-popup-dismissed")
+    ) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => setIsEmailPopupOpen(true), 4000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isEmailPopupOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeEmailPopup();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isEmailPopupOpen]);
+
   const handleSubscribe = () => {
     if (email && email.includes("@")) {
       setSubStatus("success");
@@ -73,6 +103,25 @@ export default function Home() {
       setSubStatus("error");
       setTimeout(() => setSubStatus("idle"), 1500);
     }
+  };
+
+  const closeEmailPopup = () => {
+    setIsEmailPopupOpen(false);
+    window.localStorage.setItem("sfx-email-popup-dismissed", "1");
+  };
+
+  const handlePopupSubscribe = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const trimmedEmail = popupEmail.trim();
+
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
+      setPopupStatus("error");
+      return;
+    }
+
+    window.localStorage.setItem("sfx-email-list-joined", trimmedEmail);
+    setPopupStatus("success");
+    window.setTimeout(() => setIsEmailPopupOpen(false), 1800);
   };
 
   return (
@@ -88,7 +137,6 @@ export default function Home() {
         <ul className={`nav-links${mobileNavOpen ? " mobile-open" : ""}`}>
           {[
             { href: "#concerts", label: "Concerts" },
-            { href: "#artists", label: "Artists" },
             { href: "#promo", label: "Promotion" },
             { href: "/shop", label: "Shop" },
             { href: "/submit", label: "Submit Music" },
@@ -273,58 +321,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ARTISTS */}
-      <section className="artists" id="artists">
-        <div className="section-label">Artists On The Bill</div>
-        <div className="section-title">Meet The Scene</div>
-        <div className="artists-grid">
-          {[
-            {
-              initials: "NB",
-              name: "Nvrbryan",
-              spotify: "https://open.spotify.com/artist/4RgsN7LGrJ36tAs8tJ5kN1",
-            },
-            {
-              initials: "KC",
-              name: "Kenney Cole",
-              spotify: "https://open.spotify.com/artist/18YVx2ELDur2my1yviglv5",
-            },
-            {
-              initials: "N$",
-              name: "N$ Willy",
-              spotify: "https://open.spotify.com/artist/1BGvXqgpLjeAgAapQCJsfL",
-            },
-            {
-              initials: "LT",
-              name: "Liltrandog",
-              spotify: "https://open.spotify.com/artist/2SF7o7lomS2hM1Db6hZcAh",
-            },
-            {
-              initials: "MN",
-              name: "MANUEL!",
-              spotify: "https://open.spotify.com/artist/2jBosUtmgmlUoZS9XL5C6F",
-            },
-          ].map(({ initials, name, spotify }) => (
-            <a
-              key={name}
-              href={spotify}
-              target="_blank"
-              rel="noreferrer"
-              className="artist-card fade-up"
-            >
-              <div className="artist-avatar">{initials}</div>
-              <h4>{name}</h4>
-              <div className="artist-spotify-badge">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.273a.75.75 0 01-1.032.25c-2.826-1.727-6.38-2.117-10.57-1.16a.75.75 0 01-.334-1.463c4.584-1.047 8.52-.596 11.687 1.34a.75.75 0 01.25 1.033zm1.47-3.27a.937.937 0 01-1.29.31c-3.233-1.987-8.163-2.563-11.986-1.403a.937.937 0 01-.548-1.793c4.37-1.336 9.8-.689 13.514 1.596a.937.937 0 01.31 1.29zm.127-3.408c-3.878-2.304-10.278-2.515-13.981-1.39a1.125 1.125 0 01-.651-2.152c4.248-1.286 11.306-1.038 15.768 1.608a1.125 1.125 0 01-1.136 1.934z"/>
-                </svg>
-                Listen on Spotify
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
       {/* PROMO */}
       <section className="promo" id="promo">
         <div className="promo-bg" />
@@ -399,8 +395,8 @@ export default function Home() {
         <div className="section-label">Stay Connected</div>
         <div className="section-title">Never Miss a Show</div>
         <p>
-          Get Utah show announcements, artist spotlights, and SFX Utah event updates delivered straight to your
-          inbox. No noise, just the good stuff.
+          Get show announcements, special merch drops, and ticketing info delivered straight to your inbox. No
+          noise, just the good stuff.
         </p>
         <div className="newsletter-form">
           <input
@@ -471,6 +467,61 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {isEmailPopupOpen && (
+        <div
+          className="email-popup-backdrop"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) closeEmailPopup();
+          }}
+        >
+          <div
+            className="email-popup"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="email-popup-title"
+            aria-describedby="email-popup-description"
+          >
+            <button className="email-popup-close" type="button" onClick={closeEmailPopup} aria-label="Close">
+              ×
+            </button>
+            <div className="section-label">Stay In The Loop</div>
+            <h2 id="email-popup-title">Never Miss<br /><span>the next show.</span></h2>
+            {popupStatus === "success" ? (
+              <div className="email-popup-success">
+                <div className="email-popup-success-mark">✓</div>
+                <p>You're on the list. We'll see you at the next one.</p>
+              </div>
+            ) : (
+              <>
+                <p id="email-popup-description">
+                  Get show announcements, special merch drops, and ticketing info from SFX Utah.
+                </p>
+                <form className="email-popup-form" onSubmit={handlePopupSubscribe}>
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    aria-label="Email address"
+                    value={popupEmail}
+                    onChange={(event) => {
+                      setPopupEmail(event.target.value);
+                      if (popupStatus === "error") setPopupStatus("idle");
+                    }}
+                    autoFocus
+                    required
+                  />
+                  <button className="btn-primary" type="submit">Join The List</button>
+                </form>
+                {popupStatus === "error" && (
+                  <p className="email-popup-error">Enter a valid email address to join.</p>
+                )}
+                <p className="email-popup-note">No noise. Just the good stuff.</p>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
