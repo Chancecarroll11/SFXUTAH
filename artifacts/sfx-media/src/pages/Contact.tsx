@@ -207,8 +207,8 @@ export default function Contact() {
             </div>
             <div className="contact-info-divider" />
             <div className="contact-info-item">
-              <div className="contact-info-label">Next Show</div>
-              <div className="contact-info-value">SFX II: Apr 25, The Rise, Provo</div>
+              <div className="contact-info-label">Upcoming Shows</div>
+              <div className="contact-info-value">SFX Kilby Court · SFX Whysound</div>
             </div>
             <div className="contact-info-divider" />
             <div className="contact-info-item">

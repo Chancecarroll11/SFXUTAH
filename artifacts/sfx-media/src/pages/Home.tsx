@@ -238,22 +238,38 @@ export default function Home() {
         <div className="section-label">SFX Presents</div>
         <div className="section-title">Upcoming Shows</div>
         <div className="concerts-list">
-          <a href="https://sfxutah.square.site" target="_blank" rel="noreferrer" className="concert-row">
+          <div className="concert-row">
             <div className="concert-date">
-              <small>Apr</small>
-              25
+              <small>Details</small>
+              Soon
             </div>
             <div className="concert-info">
-              <h4>SFX II: Utah's Official Underground Rap Show</h4>
-              <span>SFX Utah Presents · The Rise · Provo, UT · Doors 7 PM · Show 7:30 PM</span>
+              <h4>SFX Kilby Court</h4>
+              <span>SFX Utah presents a new local show at Kilby Court. More details coming soon.</span>
             </div>
             <div className="concert-venue">
-              The Rise
+              Kilby Court
               <br />
-              <small>Provo, Utah</small>
+              <small>Salt Lake City, Utah</small>
             </div>
-            <div className="concert-tag live">Get Tickets</div>
-          </a>
+            <div className="concert-tag live">More Details Soon</div>
+          </div>
+          <div className="concert-row">
+            <div className="concert-date">
+              <small>Details</small>
+              Soon
+            </div>
+            <div className="concert-info">
+              <h4>SFX Whysound</h4>
+              <span>SFX Utah presents a new local show with Whysound. More details coming soon.</span>
+            </div>
+            <div className="concert-venue">
+              Whysound
+              <br />
+              <small>Utah</small>
+            </div>
+            <div className="concert-tag live">More Details Soon</div>
+          </div>
         </div>
       </section>
 
