@@ -863,44 +863,6 @@ section { padding: 100px 40px; }
   margin-bottom: 28px;
 }
 
-/* ROLE GRID */
-.role-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-}
-.role-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-  text-align: left;
-}
-.role-card:hover { border-color: rgba(255,30,173,0.5); background: rgba(255,30,173,0.04); }
-.role-card--active {
-  border-color: var(--red);
-  background: rgba(255,30,173,0.08);
-}
-.role-icon { font-size: 24px; margin-bottom: 4px; }
-.role-label {
-  font-family: var(--font-condensed);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white);
-}
-.role-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
 /* FORM */
 .contact-form { display: flex; flex-direction: column; gap: 24px; }
 .contact-form-row {
@@ -1023,13 +985,11 @@ a.contact-info-value:hover { color: var(--red); }
 @media (max-width: 900px) {
   .contact-hero { padding: 0 20px 56px; }
   .contact-body { padding: 60px 20px 80px; }
-  .role-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-form-row { grid-template-columns: 1fr; }
   .contact-info-divider { display: none; }
   .contact-info-strip { gap: 32px; }
 }
 @media (max-width: 480px) {
-  .role-grid { grid-template-columns: 1fr; }
 }
 
 /* GALLERY */
@@ -1409,140 +1369,6 @@ footer {
   .newsletter { padding: 60px 20px; }
   .newsletter-form { flex-direction: column; }
   .newsletter-form input { border-right: 1px solid var(--border); border-bottom: none; }
-}
-
-/* SHOP */
-.shop-body { max-width: 1200px; margin: 0 auto; padding: 60px 40px 120px; }
-
-.shop-loading, .shop-error {
-  text-align: center;
-  padding: 80px 20px;
-  color: var(--muted);
-}
-.shop-loading-bar {
-  width: 120px; height: 2px;
-  background: var(--red);
-  margin: 0 auto 24px;
-  animation: shopload 1.5s ease-in-out infinite alternate;
-}
-@keyframes shopload { from { opacity: 0.2; width: 40px; } to { opacity: 1; width: 200px; } }
-
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 32px;
-  margin-bottom: 60px;
-}
-
-.shop-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
-}
-.shop-card:hover {
-  border-color: var(--red);
-  transform: translateY(-4px);
-}
-
-.shop-card-art {
-  aspect-ratio: 1;
-  background: var(--off-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.shop-card-art img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-.shop-card-art-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 16px;
-  padding: 40px;
-}
-.shop-card-art-placeholder svg { width: 120px; height: 120px; }
-.shop-card-art-label {
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 4px;
-  color: var(--red);
-  opacity: 0.6;
-}
-
-.shop-card-body { padding: 24px; }
-
-.shop-card-meta {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.shop-card-tracks, .shop-card-format {
-  font-family: var(--font-condensed);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 2px 8px;
-  border-radius: 2px;
-}
-.shop-card-format { color: var(--red); border-color: var(--red-dim); }
-
-.shop-card-name {
-  font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 1px;
-  color: var(--white);
-  margin-bottom: 10px;
-  line-height: 1.1;
-}
-
-.shop-card-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.shop-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.shop-card-price {
-  font-family: var(--font-display);
-  font-size: 26px;
-  color: var(--red);
-  letter-spacing: 1px;
-}
-
-.shop-card-btn {
-  flex-shrink: 0;
-  padding: 10px 20px;
-  font-size: 13px;
-}
-
-.shop-note {
-  border-top: 1px solid var(--border);
-  padding-top: 32px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-}
-.shop-note a { color: var(--red); text-decoration: none; }
-.shop-note a:hover { text-decoration: underline; }
-
-@media (max-width: 900px) {
-  .shop-body { padding: 40px 20px 80px; }
-  .shop-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 
 /* EMAIL LIST POPUP */

@@ -1,30 +1,19 @@
 import { useState } from "react";
 
-type Role = "photographer" | "videographer" | "artist" | "promoter" | "other";
-
-const ROLES: { value: Role; label: string; icon: string; desc: string }[] = [
-  { value: "photographer", label: "Photographer", icon: "📷", desc: "Concert, editorial & event photography" },
-  { value: "videographer", label: "Videographer", icon: "🎥", desc: "Music videos, recaps & live coverage" },
-  { value: "artist", label: "Artist", icon: "🎤", desc: "Musicians looking for coverage & promotion" },
-  { value: "promoter", label: "Promoter", icon: "📣", desc: "Event & venue promotion partnerships" },
-  { value: "other", label: "Other", icon: "✦", desc: "Collabs, press, general inquiries" },
-];
-
 export default function Contact() {
-  const [role, setRole] = useState<Role | null>(null);
   const [form, setForm] = useState({ name: "", email: "", instagram: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!role || !form.name || !form.email || !form.message) return;
+    if (!form.name || !form.email || !form.message) return;
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, role }),
+        body: JSON.stringify(form),
       });
       if (res.ok) {
         setStatus("sent");
@@ -81,31 +70,12 @@ export default function Contact() {
             </h1>
             <p className="contact-hero-sub">
               SFX Utah is always looking to connect with creative people who are passionate about Utah's music scene.
-              Tell us who you are and what you're about. Let's build something together.
+              Tell us what you're about. Let's build something together.
             </p>
           </div>
         </div>
 
         <div className="contact-body">
-          {/* ROLE SELECTOR */}
-          <div className="contact-section">
-            <div className="contact-section-label">01: Who Are You?</div>
-            <div className="role-grid">
-              {ROLES.map((r) => (
-                <button
-                  key={r.value}
-                  className={`role-card${role === r.value ? " role-card--active" : ""}`}
-                  onClick={() => setRole(r.value)}
-                  type="button"
-                >
-                  <span className="role-icon">{r.icon}</span>
-                  <span className="role-label">{r.label}</span>
-                  <span className="role-desc">{r.desc}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* FORM */}
           {status === "sent" ? (
             <div className="contact-success">
@@ -118,7 +88,7 @@ export default function Contact() {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="contact-section-label">02: Your Info</div>
+              <div className="contact-section-label">01: Your Info</div>
               <div className="contact-form-row">
                 <div className="contact-field">
                   <label className="contact-label">Full Name *</label>
@@ -157,22 +127,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-section-label" style={{ marginTop: 48 }}>03: Tell Us More</div>
+              <div className="contact-section-label" style={{ marginTop: 48 }}>02: Tell Us More</div>
               <div className="contact-field">
                 <label className="contact-label">What Are You Looking For? *</label>
                 <textarea
                   className="contact-input contact-textarea"
-                  placeholder={
-                    role === "photographer"
-                      ? "Tell us about your photography style, experience, and the type of coverage you're interested in..."
-                      : role === "videographer"
-                      ? "Tell us about your video work, style, and what kind of projects you want to collaborate on..."
-                      : role === "artist"
-                      ? "Tell us about your music, upcoming shows, and what kind of coverage you're looking for..."
-                      : role === "promoter"
-                      ? "Tell us about your events, venues, and what kind of promotional partnership you have in mind..."
-                      : "Tell us a bit about yourself and what brings you to SFX Utah..."
-                  }
+                  placeholder="Tell us about your music, project, event, or what brings you to SFX Utah..."
                   rows={6}
                   value={form.message}
                   onChange={set("message")}
@@ -182,13 +142,12 @@ export default function Contact() {
 
               <div className="contact-form-footer">
                 <p className="contact-form-note">
-                  {!role && <span className="contact-form-warn">↑ Please select your role above</span>}
                   {status === "error" && <span className="contact-form-warn">Something went wrong. Please try again.</span>}
                 </p>
                 <button
                   className="btn-primary contact-submit"
                   type="submit"
-                  disabled={!role || status === "sending"}
+                  disabled={status === "sending"}
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>

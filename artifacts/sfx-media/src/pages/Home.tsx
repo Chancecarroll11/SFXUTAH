@@ -104,7 +104,6 @@ export default function Home() {
           {[
             { href: "#concerts", label: "Concerts" },
             { href: "#promo", label: "Promotion" },
-            { href: "/shop", label: "Shop" },
             { href: "/submit", label: "Submit Music" },
             { href: "https://www.instagram.com/sfx_utah", label: "Gallery" },
           ].map(({ href, label }) => {
@@ -415,7 +414,6 @@ export default function Home() {
             <h5>Company</h5>
             <ul>
               <li><a href="#">About SFX</a></li>
-              <li><a href="/shop">Shop CDs</a></li>
               <li><a href="/submit">Submit Music</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>

@@ -4,9 +4,9 @@ import nodemailer from "nodemailer";
 const router: IRouter = Router();
 
 router.post("/contact", async (req, res) => {
-  const { name, email, instagram, role, message } = req.body;
+  const { name, email, instagram, message } = req.body;
 
-  if (!name || !email || !role || !message) {
+  if (!name || !email || !message) {
     res.status(400).json({ error: "Missing required fields" });
     return;
   }
@@ -25,16 +25,6 @@ router.post("/contact", async (req, res) => {
     auth: { user: gmailUser, pass: gmailPass },
   });
 
-  const roleLabels: Record<string, string> = {
-    photographer: "Photographer",
-    videographer: "Videographer",
-    artist: "Artist",
-    promoter: "Promoter",
-    other: "Other",
-  };
-
-  const roleLabel = roleLabels[role] || role;
-
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; background: #0e0e0e; color: #f2ede8; padding: 40px; border-radius: 4px;">
       <div style="border-bottom: 2px solid #FF1EAD; padding-bottom: 20px; margin-bottom: 28px;">
@@ -50,10 +40,6 @@ router.post("/contact", async (req, res) => {
         <tr>
           <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #888; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Email</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #222; font-size: 16px;"><a href="mailto:${email}" style="color: #FF1EAD;">${email}</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #222; color: #888; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Role</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #222; font-size: 16px;">${roleLabel}</td>
         </tr>
         ${instagram ? `
         <tr>
@@ -76,7 +62,7 @@ router.post("/contact", async (req, res) => {
       from: `"SFX Utah" <${gmailUser}>`,
       to: "chancecarroll07@gmail.com",
       replyTo: email,
-      subject: `[SFX Utah] New inquiry from ${name} (${roleLabel})`,
+      subject: `[SFX Utah] New inquiry from ${name}`,
       html,
     });
     res.json({ success: true });
