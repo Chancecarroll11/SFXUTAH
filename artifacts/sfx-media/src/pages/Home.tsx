@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
+type NewsletterStatus = "idle" | "sending" | "success" | "error";
+
 export default function Home() {
   const [email, setEmail] = useState("");
-  const [subStatus, setSubStatus] = useState<"idle" | "success" | "error">("idle");
+  const [subStatus, setSubStatus] = useState<NewsletterStatus>("idle");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
   const [popupEmail, setPopupEmail] = useState("");
-  const [popupStatus, setPopupStatus] = useState<"idle" | "success" | "error">("idle");
+  const [popupStatus, setPopupStatus] = useState<NewsletterStatus>("idle");
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,14 +64,38 @@ export default function Home() {
     };
   }, [isEmailPopupOpen]);
 
-  const handleSubscribe = () => {
-    if (email && email.includes("@")) {
+  const sendNewsletterSignup = async (signupEmail: string) => {
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: signupEmail }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Newsletter signup failed");
+    }
+  };
+
+  const handleSubscribe = async () => {
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
+      setSubStatus("error");
+      setTimeout(() => setSubStatus("idle"), 1500);
+      return;
+    }
+
+    setSubStatus("sending");
+
+    try {
+      await sendNewsletterSignup(trimmedEmail);
+      window.localStorage.setItem("sfx-email-list-joined", trimmedEmail);
       setSubStatus("success");
       setEmail("");
       setTimeout(() => setSubStatus("idle"), 3000);
-    } else {
+    } catch {
       setSubStatus("error");
-      setTimeout(() => setSubStatus("idle"), 1500);
+      setTimeout(() => setSubStatus("idle"), 3000);
     }
   };
 
@@ -78,7 +104,7 @@ export default function Home() {
     window.localStorage.setItem("sfx-email-popup-dismissed", "1");
   };
 
-  const handlePopupSubscribe = (event: React.FormEvent<HTMLFormElement>) => {
+  const handlePopupSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmedEmail = popupEmail.trim();
 
@@ -87,9 +113,16 @@ export default function Home() {
       return;
     }
 
-    window.localStorage.setItem("sfx-email-list-joined", trimmedEmail);
-    setPopupStatus("success");
-    window.setTimeout(() => setIsEmailPopupOpen(false), 1800);
+    setPopupStatus("sending");
+
+    try {
+      await sendNewsletterSignup(trimmedEmail);
+      window.localStorage.setItem("sfx-email-list-joined", trimmedEmail);
+      setPopupStatus("success");
+      window.setTimeout(() => setIsEmailPopupOpen(false), 1800);
+    } catch {
+      setPopupStatus("error");
+    }
   };
 
   return (
@@ -372,11 +405,21 @@ export default function Home() {
           <button
             type="button"
             onClick={handleSubscribe}
+            disabled={subStatus === "sending"}
             style={subStatus === "success" ? { background: "#1a7a1a" } : {}}
           >
-            {subStatus === "success" ? "✓ Subscribed!" : "Subscribe"}
+            {subStatus === "sending"
+              ? "Sending..."
+              : subStatus === "success"
+                ? "✓ Subscribed!"
+                : subStatus === "error"
+                  ? "Try Again"
+                  : "Subscribe"}
           </button>
         </div>
+        {subStatus === "error" && (
+          <p className="email-popup-error">Something went wrong. Please try again.</p>
+        )}
       </section>
 
       {/* FOOTER */}
@@ -472,10 +515,12 @@ export default function Home() {
                     autoFocus
                     required
                   />
-                  <button className="btn-primary" type="submit">Join The List</button>
+                  <button className="btn-primary" type="submit" disabled={popupStatus === "sending"}>
+                    {popupStatus === "sending" ? "Sending..." : "Join The List"}
+                  </button>
                 </form>
                 {popupStatus === "error" && (
-                  <p className="email-popup-error">Enter a valid email address to join.</p>
+                  <p className="email-popup-error">Something went wrong. Please try again.</p>
                 )}
                 <p className="email-popup-note">No noise. Just the good stuff.</p>
               </>
