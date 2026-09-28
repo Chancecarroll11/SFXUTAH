@@ -8,9 +8,12 @@ const app: Express = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(process.cwd(), "../mockup-sandbox/dist")));
+app.use(express.static(path.resolve(__dirname, "../../../mockup-sandbox/dist")));
 
 app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../../../mockup-sandbox/dist/index.html"));
+});
+
   res.sendFile(path.resolve(process.cwd(), "../mockup-sandbox/dist/index.html"));
 });
 
