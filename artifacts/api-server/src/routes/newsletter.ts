@@ -44,7 +44,7 @@ router.post("/newsletter", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"SFX Utah Newsletter" <${gmailUser}>`,
-      to: gmailUser,
+      to: "chancecarroll07@gmail.com",
       replyTo: email,
       subject: "[SFX Utah] New newsletter signup",
       text: `New SFX Utah newsletter signup: ${email}`,
