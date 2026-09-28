@@ -14,9 +14,11 @@ app.use("/api/gallery/uploads", express.static(path.resolve(process.cwd(), "uplo
 
 // Serve static frontend assets from mockup-sandbox
 app.use(express.static(path.resolve(__dirname, "../../../mockup-sandbox/dist")));
+// Serve static frontend assets from mockup-sandbox production build
+app.use(express.static(path.resolve(__dirname, "../../../mockup-sandbox/dist")));
 
-// Route the main root URL directly to your visual website index file
-app.get("/", (req, res) => {
+// Route the main root URL directly to your actual visual website layout
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../../../mockup-sandbox/dist/index.html"));
 });
 
