@@ -22,3 +22,4 @@ app.use("/api", router);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(process.cwd(), "artifacts/mockup-sandbox/dist/index.html"));
 });
+
