@@ -10,19 +10,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve API upload assets
-app.use("/api/gallery/uploads", express.static(path.resolve(process.cwd(), "uploads")));
+app.use("/api/gallery/uploads", express.static(path.resolve(__dirname, "../uploads")));
 
 // Serve static frontend assets from mockup-sandbox
 app.use(express.static(path.resolve(__dirname, "../../../mockup-sandbox/dist")));
-// Serve static frontend assets from mockup-sandbox production build
-app.use(express.static(path.resolve(__dirname, "../../../mockup-sandbox/dist")));
-
-// Route the main root URL directly to your actual visual website layout
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../../../mockup-sandbox/dist/index.html"));
-});
 
 // Primary backend API routes
 app.use("/api", router);
+
+// Catch-all route to serve your actual visual website homepage
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../../../mockup-sandbox/dist/index.html"));
+});
 
 export default app;
